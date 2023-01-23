@@ -163,13 +163,13 @@ def show_findings_by_risk(findings, risk, directory, project):
             clean_finding = friendly_finding_name(description)
             file_finding = file_finding_name(description)
             finding = f'{clean_finding}'
-            observation = f'Observation:\nBHIS observed that {total_accounts} active AWS account(s) had {service} resources with security issues pertaining to {description}.\n\n'
+            observation = f'Observation:\nWe observed that {total_accounts} active AWS account(s) had {service} resources with security issues pertaining to {description}.\n\n'
             observation += f'Details pertaining to the affected resources have been recorded in the data archive file named: {file_finding}.txt\n\n'
             for acct in accounts:
                 observation += f'{acct}\n'
 
             discussion = f'Discussion:\n {rationale}\n{{ TODO Explain more information }}\n'
-            recommendation = f'Recommendations:\nIn efforts to remediate these issues, BHIS suggests:\n- {remediation}'
+            recommendation = f'Recommendations:\nIn efforts to remediate these issues, we suggest:\n- {remediation}'
 
             finding_details = f'{finding}\n\n{observation}\n\n{discussion}\n\n{recommendation}\n\n'
             append_report_details(directory, project, f'SEVM:{finding_details}\n')
